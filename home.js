@@ -1,5 +1,6 @@
 const validPin = 1234;
 const couponNumber = 123;
+const transactionData = [];
 //get active button
 function getActiveButton(id){
     const formBtn = document.getElementsByClassName('form-btn');
@@ -51,8 +52,8 @@ function setText(value){
 
 document.getElementById('add-money').addEventListener('click', function(){
     getActiveButton('add-money');
-    handleToggle('add-money-parent')
-    
+    handleToggle('add-money-parent');
+
 });
 document.getElementById('cash-out').addEventListener('click', function(){
     getActiveButton('cash-out');
@@ -73,6 +74,31 @@ document.getElementById('pay-bill').addEventListener('click', function(){
 document.getElementById('transactions').addEventListener('click', function(){
     getActiveButton('transactions');
     handleToggle('transaction-parent');
+
+    const transactionContainer = document.getElementById('transaction-parent');
+    transactionContainer.innerText = " ";
+
+    for(const data of transactionData){
+        const div = document.createElement('div');
+    div.innerHTML = `
+    <div class="flex justify-between items-center bg-white p-3 rounded-2xl mt-4">
+            <div class="flex justify-center gap-2">
+                <div class="bg-gray-200 rounded-full w-10 h-10 p-2">
+                    <img src="./assets/wallet1.png" alt="">
+                </div>
+                <div>
+                    <h1 class="font-semibold text-[16px]">${data.name}</h1>
+                    <p class="font-[300] text-[12px]">${data.date}</p>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+    `;
+    transactionContainer.appendChild(div);
+    }
+
 });
 
 // Add Money 
@@ -94,6 +120,14 @@ document.getElementById('add-money-btn').addEventListener('click', function(e){
     const availableBalance = getText('available-balance');
     const totalBalance = amount + availableBalance;
     setText(totalBalance);
+
+    const data = {
+        name : 'Add Money',
+        date : new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
+    
 });
 
 //cash out
@@ -120,6 +154,13 @@ document.getElementById('cash-out-button').addEventListener('click',function(e){
     }
     const totalBalance = availableBalance - amount;
     setText(totalBalance);
+
+    const data = {
+        name : 'Cash Out',
+        date : new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 
 });
 
@@ -148,6 +189,13 @@ document.getElementById('transfer-money-button').addEventListener('click',functi
     const totalBalance = availableBalance - amount;
     setText(totalBalance);
 
+    const data = {
+        name : 'Transfer Money',
+        date : new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
+
 });
 
 //get Bonus
@@ -165,6 +213,13 @@ document.getElementById('get-bonus-button').addEventListener('click',function(e)
         alert('please Enter Valid Coupon');
         return;
     }
+
+    const data = {
+        name : 'Get Bonus',
+        date : new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 });
 
 // Pay Bill
@@ -191,4 +246,12 @@ document.getElementById('pay-bill-button').addEventListener('click', function(e)
     }
     const totalBalance = availableBalance - amount;
     setText(totalBalance);
+
+    const data = {
+        name : 'Pay Bill',
+        date : new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data);
 });
+
