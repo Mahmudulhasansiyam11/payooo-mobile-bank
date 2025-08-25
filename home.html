@@ -29,7 +29,7 @@
                         <img class="w-13 h-12" src="./assets/Group.png" alt="">
                     </div>
                     <div>
-                        <h3 class="font-extrabold text-[18px]">$ <span>45000</span></h3>
+                        <h3 class="font-extrabold text-[18px]">$ <span id="available-balance">45000</span></h3>
                         <p class="font-[300] text-[14px]">Available Balance</p>
                     </div>
                 </div>
@@ -84,12 +84,12 @@
     </section>
 
     <!-- Add Money Section-->
-    <section id="add-money-parent" class="form hidden max-w-[330px] mx-auto mt-8">
+    <section id="add-money-parent" class="form max-w-[330px] mx-auto mt-8">
         <h1 class="font-semibold text-[18px]">Add Money</h1>
         <form action="" class="mt-[16px] bg-white rounded-2xl p-5">
             <div>
                 <h1 class="font-medium text-[16px]">Select A Bank</h1>
-                <select class="select mt-3 rounded-2xl bg-gray-100 border-0">
+                <select id="bank" class="select mt-3 rounded-2xl bg-gray-100 border-0">
                     <option>Select Bank</option>
                     <option>AB Bank</option>
                     <option>DHAKA Bank</option>
@@ -99,28 +99,28 @@
 
             <div>
                 <h1 class="font-medium text-[16px] mt-4">Bank Account Number</h1>
-                <input type="text" placeholder="Enter 11 digit account number"
+                <input id="add-money-bank-account-number" type="text" placeholder="Enter 11 digit account number"
                     class="input mt-3 rounded-2xl bg-gray-100 border-0" />
             </div>
             <div>
                 <h1 class="font-medium text-[16px] mt-4">Amount to Add</h1>
-                <input type="text" placeholder="Add Amount to withdraw"
+                <input id="add-money-amount" type="text" placeholder="Add Amount to withdraw"
                     class="input mt-3 rounded-2xl bg-gray-100 border-0" />
             </div>
             <div>
                 <h1 class="font-medium text-[16px] mt-4">Pin Number</h1>
-                <input type="text" placeholder="Enter 4 digit pin number"
+                <input id="add-money-pin" type="text" placeholder="Enter 4 digit pin number"
                     class="input mt-3 rounded-2xl bg-gray-100 border-0" />
             </div>
             <div>
-                <button id="login-button"
-                    class="btn btn-primary mt-[16px] w-full rounded-4xl bg-[#0874F2] border-0">Login</button>
+                <button id="add-money-btn"
+                    class="btn btn-primary mt-[16px] w-full rounded-4xl bg-[#0874F2] border-0">Add Money</button>
             </div>
         </form>
     </section>
 
     <!-- Latest Payment Section -->
-    <section id="latest-payment-parent" class="form max-w-[330px] mx-auto mt-8">
+    <section id="latest-payment-parent" class="form hidden max-w-[330px] mx-auto mt-8">
         <div class="flex justify-between items-center">
             <h1 class="font-semibold text-[18px]">Latest Payment</h1>
             <p class="font-[300] text-[14px] bg[#08080880]">View All</p>
