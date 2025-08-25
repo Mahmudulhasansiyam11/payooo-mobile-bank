@@ -1,4 +1,5 @@
 const validPin = 1234;
+const couponNumber = 123;
 //get active button
 function getActiveButton(id){
     const formBtn = document.getElementsByClassName('form-btn');
@@ -92,7 +93,6 @@ document.getElementById('add-money-btn').addEventListener('click', function(e){
     }
 
     const availableBalance = getText('available-balance');
-    console.log(availableBalance)
     const totalBalance = amount + availableBalance;
     setText(totalBalance);
 });
@@ -114,7 +114,6 @@ document.getElementById('cash-out-button').addEventListener('click',function(e){
     }
 
     const availableBalance = getText('available-balance');
-    console.log(availableBalance);
 
     if(amount<0 || amount > availableBalance){
         alert("Please enter valid amount number");
@@ -142,7 +141,6 @@ document.getElementById('transfer-money-button').addEventListener('click',functi
     }
 
     const availableBalance = getText('available-balance');
-    console.log(availableBalance);
 
     if(amount<0 || amount > availableBalance){
         alert("Please enter valid amount number");
@@ -151,4 +149,23 @@ document.getElementById('transfer-money-button').addEventListener('click',functi
     const totalBalance = availableBalance - amount;
     setText(totalBalance);
 
+});
+
+//get Bonus
+document.getElementById('get-bonus-button').addEventListener('click',function(e){
+    e.preventDefault();
+    const coupon = getInputFieldNumber('get-bonus-coupon');
+    const availableBalance = getText('available-balance');
+
+    if(coupon === couponNumber){
+        const totalBalance = availableBalance + 500;
+        setText(totalBalance);
+    }
+
+    else{
+        alert('please Enter Valid Coupon');
+        return;
+    }
+   
+    
 });
