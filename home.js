@@ -76,7 +76,6 @@ document.getElementById('transactions').addEventListener('click', function(){
     handleToggle('transaction-parent');
 
     const transactionContainer = document.getElementById('transaction-parent');
-    transactionContainer.innerText = " ";
 
     for(const data of transactionData){
         const div = document.createElement('div');
