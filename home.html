@@ -9,14 +9,35 @@
     <!-- Connect Daisy UI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 
-    <!-- Connect Tailwind Css -->
+    <!-- Connect Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Connect Font Awesome -->
+    <script src="https://kit.fontawesome.com/edce570db7.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./tailwind.init.css">
 </head>
 
-<body>
-    <h1>Welcome to home page</h1>
+<body class="max-w-[350px] mx-auto mt-5 outfit-font">
+
+    <!-- Navbar Section -->
+    <nav class="border-b-1 pb-2">
+        <div class="flex justify-between items-center max-w-[330px] mx-auto">
+            <div class="flex justify-center items-center gap-0.5">
+                <div>
+                    <img class="w-13 h-12" src="./assets/Group.png" alt="">
+                </div>
+                <div>
+                    <h3 class="font-extrabold text-[18px]">$ <span>45000</span></h3>
+                    <p class="font-[300] text-[14px]">Available Balance</p>
+                </div>
+            </div>
+            <div>
+                <button class="btn text-[#08080880]"><i class="fa-solid fa-right-to-bracket rotate-180"></i>Log
+                    Out</button>
+            </div>
+        </div>
+    </nav>
 </body>
 
 </html>
