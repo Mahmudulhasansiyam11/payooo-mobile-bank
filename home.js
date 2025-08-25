@@ -85,7 +85,6 @@ document.getElementById('add-money-btn').addEventListener('click', function(e){
         return;
     }
     const amount = getInputFieldNumber('add-money-amount');
-    console.log(amount)
     const pin = getInputFieldNumber('add-money-pin');
     if(pin != validPin){
         alert("Please Enter Valid Pin");
@@ -166,6 +165,30 @@ document.getElementById('get-bonus-button').addEventListener('click',function(e)
         alert('please Enter Valid Coupon');
         return;
     }
-   
-    
+});
+
+// Pay Bill
+document.getElementById('pay-bill-button').addEventListener('click', function(e){
+    e.preventDefault();
+    const bank = getInputField('pay-bill-bank');
+    const accountNumber = getInputField('pay-bill-bank-account-number');
+    if(accountNumber.length != 11){
+        alert('Please enter valid account number');
+        return;
+    }
+    const amount = getInputFieldNumber('pay-bill-amount');
+    const pin = getInputFieldNumber('pay-bill-pin');
+    if(pin != validPin){
+        alert("Please Enter Valid Pin");
+        return;
+    }
+
+    const availableBalance = getText('available-balance');
+
+     if(amount<0 || amount > availableBalance){
+        alert("Please enter valid amount number");
+        return;
+    }
+    const totalBalance = availableBalance - amount;
+    setText(totalBalance);
 });
