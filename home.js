@@ -81,16 +81,46 @@ document.getElementById('add-money-btn').addEventListener('click', function(e){
     const accountNumber = getInputField('add-money-bank-account-number');
     if(accountNumber.length != 11){
         alert('Please enter valid account number');
+        return;
     }
     const amount = getInputFieldNumber('add-money-amount');
     console.log(amount)
     const pin = getInputFieldNumber('add-money-pin');
     if(pin != validPin){
         alert("Please Enter Valid Pin");
+        return;
     }
 
     const availableBalance = getText('available-balance');
     console.log(availableBalance)
     const totalBalance = amount + availableBalance;
     setText(totalBalance);
+});
+
+//cash out
+document.getElementById('cash-out-button').addEventListener('click',function(e){
+    e.preventDefault();
+    const agentNumber = getInputField('cash-out-agent-number');
+    if(agentNumber.length != 11){
+        alert('Please Enter valid agent number');
+        return;
+    }
+    const amount = getInputFieldNumber('cash-out-amount');
+    const pin = getInputFieldNumber('cash-out-pin');
+
+    if(pin != validPin){
+        alert('Enter Valid Pin');
+        return;
+    }
+
+    const availableBalance = getText('available-balance');
+    console.log(availableBalance);
+
+    if(amount<0 || amount > availableBalance){
+        alert("Please enter valid amount number");
+        return;
+    }
+    const totalBalance = availableBalance - amount;
+    setText(totalBalance);
+
 });
