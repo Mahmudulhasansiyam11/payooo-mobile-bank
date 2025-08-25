@@ -124,3 +124,31 @@ document.getElementById('cash-out-button').addEventListener('click',function(e){
     setText(totalBalance);
 
 });
+
+// Transfer Money
+document.getElementById('transfer-money-button').addEventListener('click',function(e){
+    e.preventDefault();
+    const agentNumber = getInputField('transfer-money-agent-number');
+    if(agentNumber.length != 11){
+        alert('Please Enter valid agent number');
+        return;
+    }
+    const amount = getInputFieldNumber('transfer-money-amount');
+    const pin = getInputFieldNumber('transfer-money-pin');
+
+    if(pin != validPin){
+        alert('Enter Valid Pin');
+        return;
+    }
+
+    const availableBalance = getText('available-balance');
+    console.log(availableBalance);
+
+    if(amount<0 || amount > availableBalance){
+        alert("Please enter valid amount number");
+        return;
+    }
+    const totalBalance = availableBalance - amount;
+    setText(totalBalance);
+
+});
